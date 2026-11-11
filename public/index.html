@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>
+        User Form
+    </title>
+
+</head>
+
+
+<body>
+
+    <h1 id="createUserTitle">
+        Create User
+    </h1>
+
+
+    <form id="userForm">
+
+        <input
+            id="username_int"
+            type="text"
+            placeholder="Username"
+        >
+
+
+        <input
+            id="email_int"
+            type="email"
+            placeholder="Email"
+        >
+
+
+        <input
+            id="password_int"
+            type="password"
+            placeholder="Password"
+            required
+            minlength="8"
+            pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,}"
+            title="Password must contain at least 8 characters, uppercase letter, lowercase letter, number, and special character."
+        >
+
+
+        <input
+            id="adresse_int"
+            type="text"
+            placeholder="Adresse"
+        >
+
+
+        <button 
+        id="submit_btn"
+        type="submit">
+            Create User
+        </button>
+
+    </form>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
