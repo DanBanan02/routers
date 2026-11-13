@@ -1,5 +1,5 @@
 /* **************************
-   GET NAME FROM URL
+   GET USERNAME FROM URL
 ************************** */
 
 const username =
@@ -11,6 +11,21 @@ const username =
 /* **************************
    GET USER FROM API
 ************************** */
+
+
+async function logoutUser()
+{
+    await fetch(
+        "/api/users/logout",
+        {
+            method: "POST"
+        }
+    );
+
+    window.location.replace(
+        "/login"
+    );
+}
 
 async function getUser()
 {
@@ -33,7 +48,7 @@ async function getUser()
        CHECK USER
     ************************** */
 
-    if (!user)
+    if (!response.ok || !user)
     {
         document.getElementById(
             "username_title"
@@ -53,10 +68,6 @@ async function getUser()
     ).textContent =
         user.username;
 
-
-    /* **************************
-       LIST OF USER CONTENT
-    ************************** */
 
     document.getElementById(
         "username"
@@ -78,4 +89,103 @@ async function getUser()
 }
 
 
+/* **************************
+   RUN USER FUNCTION
+************************** */
+
 getUser();
+
+
+/* **************************
+   INACTIVITY LOGOUT
+************************** */
+
+const inactivityTime =
+    5 * 60 * 1000;
+
+
+let inactivityTimer;
+
+
+/* **************************
+   LOGOUT USER
+************************** */
+
+async function logoutUser()
+{
+
+    await fetch(
+        "/api/users/logout",
+        {
+            method: "POST"
+        }
+    );
+
+
+    window.location.replace(
+        "/login"
+    );
+
+}
+
+
+/* **************************
+   RESET INACTIVITY TIMER
+************************** */
+
+function resetInactivityTimer()
+{
+
+    clearTimeout(
+        inactivityTimer
+    );
+
+
+    inactivityTimer =
+        setTimeout(
+            logoutUser,
+            inactivityTime
+        );
+
+}
+
+
+/* **************************
+   USER ACTIVITY
+************************** */
+
+window.addEventListener(
+    "mousemove",
+    resetInactivityTimer
+);
+
+
+window.addEventListener(
+    "keydown",
+    resetInactivityTimer
+);
+
+
+window.addEventListener(
+    "click",
+    resetInactivityTimer
+);
+
+
+window.addEventListener(
+    "scroll",
+    resetInactivityTimer
+);
+
+
+window.addEventListener(
+    "touchstart",
+    resetInactivityTimer
+);
+
+
+/* **************************
+   START TIMER
+************************** */
+
+resetInactivityTimer();

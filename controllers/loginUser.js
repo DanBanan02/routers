@@ -27,9 +27,13 @@ export const loginUser = (req, res) =>
 
     /* Login succsessful */
 
-    res.status(200).json({
-        message: "Login successful.",
-        username: user.username
-    });
+        req.session.username =
+            user.username;
+
+
+        return res.status(200).json({
+            message: "Login successful.",
+            username: user.username
+        });
 
 };

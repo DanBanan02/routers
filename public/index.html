@@ -33,6 +33,7 @@
             id="username_int"
             type="text"
             placeholder="Username"
+            required
         >
 
 
@@ -40,6 +41,7 @@
             id="email_int"
             type="email"
             placeholder="Email"
+            required
         >
 
 
@@ -47,10 +49,10 @@
             id="password_int"
             type="password"
             placeholder="Password"
+
             required
             minlength="8"
-            pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,}"
-            title="Password must contain at least 8 characters, uppercase letter, lowercase letter, number, and special character."
+            
         >
 
 
@@ -58,6 +60,7 @@
             id="adresse_int"
             type="text"
             placeholder="Adresse"
+            required
         >
 
 
@@ -68,7 +71,7 @@
         </button>
 
     </form>
-
+    
     <script src="script.js"></script>
 
 </body>

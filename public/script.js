@@ -30,6 +30,12 @@ userForm.addEventListener("submit", async (event) =>
 
     if (!checkPassword(password))
     {
+        alert(
+            "Password must have at least 8 characters, " +
+            "one uppercase letter, one lowercase letter, " +
+            "one number, one special character, and no spaces."
+        );
+
         return;
     }
 
@@ -56,9 +62,26 @@ userForm.addEventListener("submit", async (event) =>
 
         console.log(data);
 
+        if (!response.ok)
+        {
+            alert(
+                data.message || "Registration failed."
+            );
+
+            return;
+        }
+
+
         if (response.ok)
         {
+            sessionStorage.setItem(
+                "userCreatedMessage",
+                "User created successfully. You can now log in."
+            );
+
             window.location.href =
-                `/users/${newUser.username}`;
+                "/login";
         }
+
+
 });

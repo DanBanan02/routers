@@ -1,6 +1,22 @@
 const loginForm =
     document.getElementById("loginForm");
 
+const userCreatedMessage =
+    sessionStorage.getItem("userCreatedMessage");
+
+    if (userCreatedMessage)
+{
+    // Find the login message.
+    document.getElementById(
+        "login_message"
+    ).textContent = userCreatedMessage;
+
+    // Remove the message.
+    sessionStorage.removeItem(
+        "userCreatedMessage"
+    );
+}
+
 
 loginForm.addEventListener("submit", async (event) =>
 {

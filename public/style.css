@@ -15,7 +15,9 @@ body
 
 .userForm
 {
+    display: flex;
 
+    direction: column;
 }
 
 .username_int
@@ -41,4 +43,49 @@ body
 .submit_btn
 {
 
+}
+
+.loginFrom
+{
+    display:flex;
+    flex-direction: row;
+}
+
+
+
+#login_username
+{
+    display: block;
+}
+#logout_username
+{
+    display: block;
+}
+
+.userForm
+{
+    display:flex;
+
+    flex-direction: column;
+}
+
+#username_int
+{
+    display:block;
+}
+#email_int
+{
+    display:block;
+}
+#password_int
+{
+    display:block;
+}
+#adresse_int
+{
+    display:block;
+}
+#submit_btn
+{
+    display:block;
 }
